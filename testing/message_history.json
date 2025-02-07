@@ -1,0 +1,514 @@
+{
+    "data": {
+        "messages": [
+            {
+                "id": "67a4eb94e4a6b9277486f3bd",
+                "attachments": [],
+                "body": "Opening this ticket to track this project. 1st priority request\n\nBrief:\n\n* 3rd floor main bedroom ceiling leak\n* Water leak collecting along seam of drywall\n* Roof replaced 12 yrs old\n* Deck redone, and pressure treated\n* Trex placed 18-20 months ago - lays on top of a grid of pressure-treated joists\n* Active leak when it rains, or recently when snow melted\n* Possible need to pull up some of the Trex\n* Drywall ceiling repairs after leak has been resolved",
+                "createdAt": "2025-02-06T17:04:20.429Z",
+                "extends": "null",
+                "plainBody": "<p>Opening this ticket to track this project. 1st priority request</p><p>Brief:</p><ul><li><p>3rd floor main bedroom ceiling leak</p></li><li><p>Water leak collecting along seam of drywall</p></li><li><p>Roof replaced 12 yrs old</p></li><li><p>Deck redone, and pressure treated</p></li><li><p>Trex placed 18-20 months ago - lays on top of a grid of pressure-treated joists</p></li><li><p>Active leak when it rains, or recently when snow melted</p></li><li><p>Possible need to pull up some of the Trex</p></li><li><p>Drywall ceiling repairs after leak has been resolved</p></li></ul>",
+                "serviceId": "67a420869acc6d16f1f50cb3",
+                "timePreference": null,
+                "timeProposal": null,
+                "updatedAt": "2025-02-06T17:04:20.429Z",
+                "userCreated": {
+                    "avatarUrl": "https://mainopt.cdn.birdwatch.com/Christian-6318cee5c8e76c61468f2f56-1690292383524.png",
+                    "firstName": "Christian",
+                    "name": "Christian Batres",
+                    "id": "6318cee6c8e76c61468f2f58",
+                    "roles": [
+                        {
+                            "role": "MANAGER",
+                            "__typename": "Role"
+                        },
+                        {
+                            "role": "ADMIN",
+                            "__typename": "Role"
+                        }
+                    ],
+                    "profiles": [
+                        {
+                            "key": "LAST_UPDATE_PASSWORD",
+                            "value": "2024-04-26T01:11:13+00:00",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "TIME_ZONE",
+                            "value": "America/New_York",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "CALENDAR_EVENT_FILTER_TECHNICIAN",
+                            "value": "null",
+                            "__typename": "UserProfile"
+                        }
+                    ],
+                    "__typename": "User"
+                },
+                "userReadServiceMessage": [
+                    {
+                        "createdAt": "2025-02-06T19:19:31.059Z",
+                        "userReadMessage": {
+                            "avatarUrl": "",
+                            "firstName": "Patrick",
+                            "name": "Patrick   Serfass",
+                            "id": "67888d80e7626634e974614c",
+                            "__typename": "User"
+                        },
+                        "__typename": "UserReadServiceMessage"
+                    }
+                ],
+                "viaChannel": "WEB",
+                "viaEmail": false,
+                "visit": null,
+                "linkPreview": null,
+                "__typename": "Message"
+            },
+            {
+                "id": "67a4ed27632b27ca821fb84e",
+                "attachments": [],
+                "body": "Hi Patrick and Jennifer, \n\nWe would love to have our Project Manager Mike onsite to scope out the projects on your ToDo list, with the ceiling leak being top priority. \n\nLet me know if there are any times next week that would work for you. ",
+                "createdAt": "2025-02-06T17:11:03.986Z",
+                "extends": "null",
+                "plainBody": "<p>Hi Patrick and Jennifer, </p><p>We would love to have our Project Manager Mike onsite to scope out the projects on your ToDo list, with the ceiling leak being top priority. </p><p>Let me know if there are any times next week that would work for you. </p>",
+                "serviceId": "67a420869acc6d16f1f50cb3",
+                "timePreference": null,
+                "timeProposal": null,
+                "updatedAt": "2025-02-06T17:11:03.986Z",
+                "userCreated": {
+                    "avatarUrl": "https://mainopt.cdn.birdwatch.com/Christian-6318cee5c8e76c61468f2f56-1690292383524.png",
+                    "firstName": "Christian",
+                    "name": "Christian Batres",
+                    "id": "6318cee6c8e76c61468f2f58",
+                    "roles": [
+                        {
+                            "role": "MANAGER",
+                            "__typename": "Role"
+                        },
+                        {
+                            "role": "ADMIN",
+                            "__typename": "Role"
+                        }
+                    ],
+                    "profiles": [
+                        {
+                            "key": "LAST_UPDATE_PASSWORD",
+                            "value": "2024-04-26T01:11:13+00:00",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "TIME_ZONE",
+                            "value": "America/New_York",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "CALENDAR_EVENT_FILTER_TECHNICIAN",
+                            "value": "null",
+                            "__typename": "UserProfile"
+                        }
+                    ],
+                    "__typename": "User"
+                },
+                "userReadServiceMessage": [
+                    {
+                        "createdAt": "2025-02-06T19:19:31.059Z",
+                        "userReadMessage": {
+                            "avatarUrl": "",
+                            "firstName": "Patrick",
+                            "name": "Patrick   Serfass",
+                            "id": "67888d80e7626634e974614c",
+                            "__typename": "User"
+                        },
+                        "__typename": "UserReadServiceMessage"
+                    }
+                ],
+                "viaChannel": "WEB",
+                "viaEmail": false,
+                "visit": null,
+                "linkPreview": null,
+                "__typename": "Message"
+            },
+            {
+                "id": "67a4ed2ee4a6b9277486f3eb",
+                "attachments": [],
+                "body": "Please pick three time slots so we can match you with your technician as quickly as possible.",
+                "createdAt": "2025-02-06T17:11:10.989Z",
+                "extends": "[{\"type\":\"TIME_PREFERENCE_REQUESTED\",\"payload\":{\"visitId\":\"67a4ed2ee4a6b9277486f3e7\",\"timePreferenceId\":\"67a4ed2ee4a6b9277486f3e8\"}}]",
+                "plainBody": "<p>Please pick three time slots so we can match you with your technician as quickly as possible.</p>",
+                "serviceId": "67a420869acc6d16f1f50cb3",
+                "timePreference": {
+                    "createdAt": "2025-02-06T17:11:10.914Z",
+                    "isActive": false,
+                    "items": [],
+                    "updatedAt": "2025-02-06T20:16:54.124Z",
+                    "__typename": "TimePreferenceEntity"
+                },
+                "timeProposal": null,
+                "updatedAt": "2025-02-06T17:11:10.989Z",
+                "userCreated": {
+                    "avatarUrl": "https://mainopt.cdn.birdwatch.com/Christian-6318cee5c8e76c61468f2f56-1690292383524.png",
+                    "firstName": "Christian",
+                    "name": "Christian Batres",
+                    "id": "6318cee6c8e76c61468f2f58",
+                    "roles": [
+                        {
+                            "role": "MANAGER",
+                            "__typename": "Role"
+                        },
+                        {
+                            "role": "ADMIN",
+                            "__typename": "Role"
+                        }
+                    ],
+                    "profiles": [
+                        {
+                            "key": "LAST_UPDATE_PASSWORD",
+                            "value": "2024-04-26T01:11:13+00:00",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "TIME_ZONE",
+                            "value": "America/New_York",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "CALENDAR_EVENT_FILTER_TECHNICIAN",
+                            "value": "null",
+                            "__typename": "UserProfile"
+                        }
+                    ],
+                    "__typename": "User"
+                },
+                "userReadServiceMessage": [
+                    {
+                        "createdAt": "2025-02-06T19:19:31.059Z",
+                        "userReadMessage": {
+                            "avatarUrl": "",
+                            "firstName": "Patrick",
+                            "name": "Patrick   Serfass",
+                            "id": "67888d80e7626634e974614c",
+                            "__typename": "User"
+                        },
+                        "__typename": "UserReadServiceMessage"
+                    }
+                ],
+                "viaChannel": "WEB",
+                "viaEmail": false,
+                "visit": {
+                    "id": "67a4ed2ee4a6b9277486f3e7",
+                    "addToCalendar": {
+                        "description": "Opening this ticket to track this project. 1st priority requestBrief:3rd floor main bedroom ceiling leakWater leak collecting along seam of drywallRoof replaced 12 yrs oldDeck redone, and pressure treatedTrex placed 18-20 months ago - lays on top of a grid of pressure-treated joistsActive leak when it rains, or recently when snow meltedPossible need to pull up some of the TrexDrywall ceiling repairs after leak has been resolved",
+                        "endDate": "2025-02-11T14:00:00.000Z",
+                        "location": "1126 I St SE, Washington, DC, 20003",
+                        "startDate": "2025-02-11T13:00:00.000Z",
+                        "title": "Birdwatch: Ceiling leak in Primary bedroom, drywall repairs",
+                        "__typename": "Calendar"
+                    },
+                    "createdAt": "2025-02-06T17:11:10.914Z",
+                    "updatedAt": "2025-02-06T22:35:28.140Z",
+                    "fromDateTime": "2025-02-11T13:00:00.000Z",
+                    "toDateTime": "2025-02-11T14:00:00.000Z",
+                    "isConfirmedRecently": true,
+                    "status": "BOOKED",
+                    "arrivalWindow": 1,
+                    "__typename": "Visit"
+                },
+                "linkPreview": null,
+                "__typename": "Message"
+            },
+            {
+                "id": "67a50b9e9a6653cb8ee45a46",
+                "attachments": [],
+                "body": "I can't clear out an entire morning or afternoon. I can do before 10am (as in, I need any visit to be finished by 10am to let me get on a meeting) Monday Tuesday and Wednesday.",
+                "createdAt": "2025-02-06T19:21:02.961Z",
+                "extends": "null",
+                "plainBody": "<p>I can't clear out an entire morning or afternoon. I can do before 10am (as in, I need any visit to be finished by 10am to let me get on a meeting) Monday Tuesday and Wednesday.</p>",
+                "serviceId": "67a420869acc6d16f1f50cb3",
+                "timePreference": null,
+                "timeProposal": null,
+                "updatedAt": "2025-02-06T19:21:02.961Z",
+                "userCreated": {
+                    "avatarUrl": "",
+                    "firstName": "Patrick",
+                    "name": "Patrick   Serfass",
+                    "id": "67888d80e7626634e974614c",
+                    "roles": [
+                        {
+                            "role": "OWNER",
+                            "__typename": "Role"
+                        }
+                    ],
+                    "profiles": [
+                        {
+                            "key": "TIME_ZONE",
+                            "value": "America/New_York",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "LAST_UPDATE_PASSWORD",
+                            "value": "2025-01-16T04:40:10+00:00",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "DOWNLOAD_APP_MODAL",
+                            "value": "true",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "ASSIGN_MANAGER_MODAL",
+                            "value": "[{\"placeId\":\"67888d81e7626634e9746151\"}]",
+                            "__typename": "UserProfile"
+                        }
+                    ],
+                    "__typename": "User"
+                },
+                "userReadServiceMessage": [
+                    {
+                        "createdAt": "2025-02-06T20:17:03.524Z",
+                        "userReadMessage": {
+                            "avatarUrl": "https://mainopt.cdn.birdwatch.com/Christian-6318cee5c8e76c61468f2f56-1690292383524.png",
+                            "firstName": "Christian",
+                            "name": "Christian Batres",
+                            "id": "6318cee6c8e76c61468f2f58",
+                            "__typename": "User"
+                        },
+                        "__typename": "UserReadServiceMessage"
+                    }
+                ],
+                "viaChannel": "WEB",
+                "viaEmail": false,
+                "visit": null,
+                "linkPreview": null,
+                "__typename": "Message"
+            },
+            {
+                "id": "67a51892e4a6b9277486f5ff",
+                "attachments": [],
+                "body": "Thank you, Patrick. We can do an 8am-9am arrival on Tuesday. Let me know if this works. ",
+                "createdAt": "2025-02-06T20:16:18.028Z",
+                "extends": "null",
+                "plainBody": "<p>Thank you, Patrick. We can do an 8am-9am arrival on Tuesday. Let me know if this works. </p>",
+                "serviceId": "67a420869acc6d16f1f50cb3",
+                "timePreference": null,
+                "timeProposal": null,
+                "updatedAt": "2025-02-06T20:16:18.028Z",
+                "userCreated": {
+                    "avatarUrl": "https://mainopt.cdn.birdwatch.com/Christian-6318cee5c8e76c61468f2f56-1690292383524.png",
+                    "firstName": "Christian",
+                    "name": "Christian Batres",
+                    "id": "6318cee6c8e76c61468f2f58",
+                    "roles": [
+                        {
+                            "role": "MANAGER",
+                            "__typename": "Role"
+                        },
+                        {
+                            "role": "ADMIN",
+                            "__typename": "Role"
+                        }
+                    ],
+                    "profiles": [
+                        {
+                            "key": "LAST_UPDATE_PASSWORD",
+                            "value": "2024-04-26T01:11:13+00:00",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "TIME_ZONE",
+                            "value": "America/New_York",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "CALENDAR_EVENT_FILTER_TECHNICIAN",
+                            "value": "null",
+                            "__typename": "UserProfile"
+                        }
+                    ],
+                    "__typename": "User"
+                },
+                "userReadServiceMessage": [
+                    {
+                        "createdAt": "2025-02-06T20:16:24.144Z",
+                        "userReadMessage": {
+                            "avatarUrl": "",
+                            "firstName": "Patrick",
+                            "name": "Patrick   Serfass",
+                            "id": "67888d80e7626634e974614c",
+                            "__typename": "User"
+                        },
+                        "__typename": "UserReadServiceMessage"
+                    }
+                ],
+                "viaChannel": "WEB",
+                "viaEmail": false,
+                "visit": null,
+                "linkPreview": null,
+                "__typename": "Message"
+            },
+            {
+                "id": "67a518b69a6653cb8ee45b00",
+                "attachments": [],
+                "body": "Does this option work for you? Let me know by either accepting or declining the proposed time. ",
+                "createdAt": "2025-02-06T20:16:54.407Z",
+                "extends": "[{\"type\":\"TIME_PROPOSAL_REQUESTED\",\"payload\":{\"visitId\":\"67a4ed2ee4a6b9277486f3e7\",\"timeProposalId\":\"67a518b69a6653cb8ee45afb\"}}]",
+                "plainBody": "<p>Does this option work for you? Let me know by either accepting or declining the proposed time. </p>",
+                "serviceId": "67a420869acc6d16f1f50cb3",
+                "timePreference": null,
+                "timeProposal": {
+                    "fromDateTime": "2025-02-11T13:00:00.000Z",
+                    "status": "BOOKED",
+                    "toDateTime": "2025-02-11T14:00:00.000Z",
+                    "__typename": "TimeProposal"
+                },
+                "updatedAt": "2025-02-06T20:16:54.407Z",
+                "userCreated": {
+                    "avatarUrl": "https://mainopt.cdn.birdwatch.com/Christian-6318cee5c8e76c61468f2f56-1690292383524.png",
+                    "firstName": "Christian",
+                    "name": "Christian Batres",
+                    "id": "6318cee6c8e76c61468f2f58",
+                    "roles": [
+                        {
+                            "role": "MANAGER",
+                            "__typename": "Role"
+                        },
+                        {
+                            "role": "ADMIN",
+                            "__typename": "Role"
+                        }
+                    ],
+                    "profiles": [
+                        {
+                            "key": "LAST_UPDATE_PASSWORD",
+                            "value": "2024-04-26T01:11:13+00:00",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "TIME_ZONE",
+                            "value": "America/New_York",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "CALENDAR_EVENT_FILTER_TECHNICIAN",
+                            "value": "null",
+                            "__typename": "UserProfile"
+                        }
+                    ],
+                    "__typename": "User"
+                },
+                "userReadServiceMessage": [
+                    {
+                        "createdAt": "2025-02-06T20:17:01.153Z",
+                        "userReadMessage": {
+                            "avatarUrl": "",
+                            "firstName": "Patrick",
+                            "name": "Patrick   Serfass",
+                            "id": "67888d80e7626634e974614c",
+                            "__typename": "User"
+                        },
+                        "__typename": "UserReadServiceMessage"
+                    }
+                ],
+                "viaChannel": "WEB",
+                "viaEmail": false,
+                "visit": {
+                    "id": "67a4ed2ee4a6b9277486f3e7",
+                    "addToCalendar": {
+                        "description": "Opening this ticket to track this project. 1st priority requestBrief:3rd floor main bedroom ceiling leakWater leak collecting along seam of drywallRoof replaced 12 yrs oldDeck redone, and pressure treatedTrex placed 18-20 months ago - lays on top of a grid of pressure-treated joistsActive leak when it rains, or recently when snow meltedPossible need to pull up some of the TrexDrywall ceiling repairs after leak has been resolved",
+                        "endDate": "2025-02-11T14:00:00.000Z",
+                        "location": "1126 I St SE, Washington, DC, 20003",
+                        "startDate": "2025-02-11T13:00:00.000Z",
+                        "title": "Birdwatch: Ceiling leak in Primary bedroom, drywall repairs",
+                        "__typename": "Calendar"
+                    },
+                    "createdAt": "2025-02-06T17:11:10.914Z",
+                    "updatedAt": "2025-02-06T22:35:28.140Z",
+                    "fromDateTime": "2025-02-11T13:00:00.000Z",
+                    "toDateTime": "2025-02-11T14:00:00.000Z",
+                    "isConfirmedRecently": true,
+                    "status": "BOOKED",
+                    "arrivalWindow": 1,
+                    "__typename": "Visit"
+                },
+                "linkPreview": null,
+                "__typename": "Message"
+            },
+            {
+                "id": "67a53930e4a6b9277486f802",
+                "attachments": [],
+                "body": "Yes, I accept the proposed time:",
+                "createdAt": "2025-02-06T22:35:28.494Z",
+                "extends": "[{\"type\":\"TIME_PROPOSAL_BOOKED\",\"payload\":{\"visitId\":\"67a4ed2ee4a6b9277486f3e7\",\"timeProposalId\":\"67a518b69a6653cb8ee45afb\"}}]",
+                "plainBody": "<p>Yes, I accept the proposed time:</p>",
+                "serviceId": "67a420869acc6d16f1f50cb3",
+                "timePreference": null,
+                "timeProposal": {
+                    "fromDateTime": "2025-02-11T13:00:00.000Z",
+                    "status": "BOOKED",
+                    "toDateTime": "2025-02-11T14:00:00.000Z",
+                    "__typename": "TimeProposal"
+                },
+                "updatedAt": "2025-02-06T22:35:28.494Z",
+                "userCreated": {
+                    "avatarUrl": "",
+                    "firstName": "Patrick",
+                    "name": "Patrick   Serfass",
+                    "id": "67888d80e7626634e974614c",
+                    "roles": [
+                        {
+                            "role": "OWNER",
+                            "__typename": "Role"
+                        }
+                    ],
+                    "profiles": [
+                        {
+                            "key": "TIME_ZONE",
+                            "value": "America/New_York",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "LAST_UPDATE_PASSWORD",
+                            "value": "2025-01-16T04:40:10+00:00",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "DOWNLOAD_APP_MODAL",
+                            "value": "true",
+                            "__typename": "UserProfile"
+                        },
+                        {
+                            "key": "ASSIGN_MANAGER_MODAL",
+                            "value": "[{\"placeId\":\"67888d81e7626634e9746151\"}]",
+                            "__typename": "UserProfile"
+                        }
+                    ],
+                    "__typename": "User"
+                },
+                "userReadServiceMessage": [],
+                "viaChannel": "WEB",
+                "viaEmail": false,
+                "visit": {
+                    "id": "67a4ed2ee4a6b9277486f3e7",
+                    "addToCalendar": {
+                        "description": "Opening this ticket to track this project. 1st priority requestBrief:3rd floor main bedroom ceiling leakWater leak collecting along seam of drywallRoof replaced 12 yrs oldDeck redone, and pressure treatedTrex placed 18-20 months ago - lays on top of a grid of pressure-treated joistsActive leak when it rains, or recently when snow meltedPossible need to pull up some of the TrexDrywall ceiling repairs after leak has been resolved",
+                        "endDate": "2025-02-11T14:00:00.000Z",
+                        "location": "1126 I St SE, Washington, DC, 20003",
+                        "startDate": "2025-02-11T13:00:00.000Z",
+                        "title": "Birdwatch: Ceiling leak in Primary bedroom, drywall repairs",
+                        "__typename": "Calendar"
+                    },
+                    "createdAt": "2025-02-06T17:11:10.914Z",
+                    "updatedAt": "2025-02-06T22:35:28.140Z",
+                    "fromDateTime": "2025-02-11T13:00:00.000Z",
+                    "toDateTime": "2025-02-11T14:00:00.000Z",
+                    "isConfirmedRecently": true,
+                    "status": "BOOKED",
+                    "arrivalWindow": 1,
+                    "__typename": "Visit"
+                },
+                "linkPreview": null,
+                "__typename": "Message"
+            }
+        ]
+    }
+}
