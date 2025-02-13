@@ -42,8 +42,8 @@ class BaseChunkingService(Generic[GTChunk]):
 class BaseInformationExtractionService(Generic[GTChunk, GTNode, GTEdge, GTId]):
     """Base class for entity and relationship extractors."""
 
-    graph_upsert: BaseGraphUpsertPolicy[GTNode, GTEdge, GTId]
-    max_gleaning_steps: int = 0
+    graph_upsert: BaseGraphUpsertPolicy[GTNode, GTEdge, GTId] = field()
+    max_gleaning_steps: int = field(default=0)
 
     def extract(
         self,
@@ -67,22 +67,16 @@ class BaseStateManagerService(Generic[GTNode, GTEdge, GTHash, GTChunk, GTId, GTE
     """A class for managing state operations."""
 
     workspace: Optional[Workspace] = field()
-
     graph_storage: BaseGraphStorage[GTNode, GTEdge, GTId] = field()
     entity_storage: BaseVectorStorage[TIndex, GTEmbedding] = field()
     chunk_storage: BaseIndexedKeyValueStorage[GTHash, GTChunk] = field()
-
     embedding_service: BaseEmbeddingService = field()
-
     node_upsert_policy: BaseNodeUpsertPolicy[GTNode, GTId] = field()
     edge_upsert_policy: BaseEdgeUpsertPolicy[GTEdge, GTId] = field()
-
     entity_ranking_policy: BaseRankingPolicy = field(default_factory=lambda: BaseRankingPolicy(None))
     relation_ranking_policy: BaseRankingPolicy = field(default_factory=lambda: BaseRankingPolicy(None))
     chunk_ranking_policy: BaseRankingPolicy = field(default_factory=lambda: BaseRankingPolicy(None))
-
     node_specificity: bool = field(default=False)
-
     blob_storage_cls: Type[BaseBlobStorage[csr_matrix]] = field(default=BaseBlobStorage)
 
     async def insert_start(self) -> None:

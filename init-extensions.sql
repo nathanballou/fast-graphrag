@@ -1,15 +1,22 @@
 -- Enable required extensions
-CREATE EXTENSION IF NOT EXISTS age;
 CREATE EXTENSION IF NOT EXISTS vector;
+CREATE EXTENSION IF NOT EXISTS age;
 CREATE EXTENSION IF NOT EXISTS pg_cron;
-LOAD 'age';
-SET search_path = ag_catalog, "$user", public;
 
--- Create schema
+-- Create schema for fast-graphrag
 CREATE SCHEMA IF NOT EXISTS fastrag;
 
--- Create a graph in AGE
-SELECT create_graph('fastrag');
+-- Set search path
+SET search_path TO ag_catalog, fastrag, public;
+
+-- Load AGE extension
+LOAD 'age';
+
+-- Create AGE graph
+SELECT * FROM ag_catalog.create_graph('graphrag');
+
+-- Test AGE with a simple Cypher query
+SELECT * FROM ag_catalog.cypher('graphrag', $$ CREATE (n:Person {name: 'test'}) RETURN n $$) as (n agtype);
 
 -- Create tables for storing embeddings and metadata
 CREATE TABLE IF NOT EXISTS fastrag.vectors (

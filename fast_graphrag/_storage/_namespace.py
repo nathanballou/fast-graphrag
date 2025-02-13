@@ -53,10 +53,9 @@ class Workspace:
 
     def get_load_path(self) -> Optional[str]:
         load_path = self.get_path(self.working_dir, self.current_load_checkpoint)
-        if load_path == self.working_dir and len([x for x in os.scandir(load_path) if x.is_file()]) == 0:
-            return None
+        if load_path is not None and not os.path.exists(load_path):
+            os.makedirs(load_path)
         return load_path
-
 
     def get_save_path(self) -> str:
         if self.save_checkpoint is None:
@@ -95,6 +94,12 @@ class Workspace:
                 if self.current_load_checkpoint is not None:
                     self.failed_checkpoints.append(str(self.current_load_checkpoint))
                 if self._rollback() is False:
+                    # If we can't rollback and we're at checkpoint 0, try to create empty storage
+                    if self.current_load_checkpoint == 0:
+                        try:
+                            return await fn()
+                        except Exception as e2:
+                            logger.error("Error creating empty storage: %s", e2)
                     break
         raise InvalidStorageError("No valid checkpoints to load or default storages cannot be created.")
 

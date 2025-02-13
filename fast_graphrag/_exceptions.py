@@ -20,3 +20,11 @@ class LLMServiceNoResponseError(Exception):
     def __init__(self, message: str = "LLM service did not provide a response"):
         self.message = message
         super().__init__(self.message)
+
+
+class EmbeddingError(Exception):
+    """Exception raised when there is an error getting embeddings."""
+
+    def __init__(self, message: str = "Failed to get embeddings"):
+        self.message = message
+        super().__init__(self.message)

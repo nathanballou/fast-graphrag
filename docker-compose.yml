@@ -6,9 +6,9 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      POSTGRES_DB: fastrag
-      POSTGRES_USER: fastrag
-      POSTGRES_PASSWORD: fastrag
+      POSTGRES_DB: ${PG_DATABASE}
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
       POSTGRES_SHARED_BUFFERS: 2GB
       POSTGRES_EFFECTIVE_CACHE_SIZE: 6GB
       POSTGRES_MAINTENANCE_WORK_MEM: 512MB
@@ -18,11 +18,11 @@ services:
       POSTGRES_MIN_WAL_SIZE: 2GB
       POSTGRES_MAX_WAL_SIZE: 8GB
     ports:
-      - "5432:5432"
+      - "${PG_PORT}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "fastrag", "-d", "fastrag"]
+      test: ["CMD", "pg_isready", "-U", "${PG_USER}", "-d", "${PG_DATABASE}"]
       interval: 30s
       timeout: 30s
       retries: 3
