@@ -1,8 +1,9 @@
 """Test GraphRAG functionality."""
 
+import logging
 import os
 import shutil
-import logging
+
 from dotenv import load_dotenv
 
 from fast_graphrag import GraphRAG
@@ -45,19 +46,20 @@ def test_file_storage():
             working_dir=test_workspace,
             domain=DOMAIN,
             example_queries="\n".join(EXAMPLE_QUERIES),
-            entity_types=ENTITY_TYPES
+            entity_types=ENTITY_TYPES,
+            storage_type="file"
         )
         
         # Test basic operations
         test_content = "Ebenezer Scrooge was a miserly old man who lived in Victorian London. On Christmas Eve, he was visited by three spirits who showed him visions of his past, present, and future. Through these encounters, Scrooge transformed from a cold-hearted businessman into a generous and kind person. His clerk, Bob Cratchit, and Cratchit's young son Tiny Tim played important roles in his transformation."
         
         logger.info("Testing document insertion...")
-        num_entities, num_relations, num_chunks = rag.insert(test_content)
+        num_entities, num_relations, num_chunks = rag.insert(content=test_content)
         logger.info(f"Inserted {num_entities} entities, {num_relations} relations, and {num_chunks} chunks")
         
         # Test query
         logger.info("Testing query functionality...")
-        response = rag.query("Who is Tiny Tim?")
+        response = rag.query(query="Who is Tiny Tim?")
         logger.info(f"Query response: {response.response}")
         
         logger.info("File storage test completed successfully!")
@@ -87,19 +89,19 @@ def test_postgres_storage():
             domain=DOMAIN,
             example_queries="\n".join(EXAMPLE_QUERIES),
             entity_types=ENTITY_TYPES,
-            storage_type="postgres"  # This will use environment variables for configuration
+            storage_type="postgres"
         )
-        
+
         # Test basic operations
         test_content = "Ebenezer Scrooge was a miserly old man who lived in Victorian London. On Christmas Eve, he was visited by three spirits who showed him visions of his past, present, and future. Through these encounters, Scrooge transformed from a cold-hearted businessman into a generous and kind person. His clerk, Bob Cratchit, and Cratchit's young son Tiny Tim played important roles in his transformation."
         
         logger.info("Testing document insertion...")
-        num_entities, num_relations, num_chunks = rag.insert(test_content)
+        num_entities, num_relations, num_chunks = rag.insert(content=test_content)
         logger.info(f"Inserted {num_entities} entities, {num_relations} relations, and {num_chunks} chunks")
         
         # Test query
         logger.info("Testing query functionality...")
-        response = rag.query("Who is Tiny Tim?")
+        response = rag.query(query="Who is Tiny Tim?")
         logger.info(f"Query response: {response.response}")
         
         logger.info("PostgreSQL storage test completed successfully!")

@@ -1,18 +1,40 @@
 """This module implements a Graph-based Retrieval-Augmented Generation (GraphRAG) system."""
 
+import os
 from dataclasses import dataclass, field
-from typing import Any, Dict, Generic, List, Optional, Tuple, Union
+from typing import Generic, List, Optional, Tuple, Union
 
 from fast_graphrag._llm import BaseLLMService, format_and_send_prompt
 from fast_graphrag._llm._base import BaseEmbeddingService
 from fast_graphrag._models import TAnswer
-from fast_graphrag._policies._base import BaseEdgeUpsertPolicy, BaseGraphUpsertPolicy, BaseNodeUpsertPolicy
+from fast_graphrag._policies._base import (
+    BaseEdgeUpsertPolicy,
+    BaseGraphUpsertPolicy,
+    BaseNodeUpsertPolicy,
+)
 from fast_graphrag._prompt import PROMPTS
 from fast_graphrag._services._chunk_extraction import BaseChunkingService
-from fast_graphrag._services._information_extraction import BaseInformationExtractionService
+from fast_graphrag._services._information_extraction import (
+    BaseInformationExtractionService,
+)
 from fast_graphrag._services._state_manager import BaseStateManagerService
-from fast_graphrag._storage._base import BaseGraphStorage, BaseIndexedKeyValueStorage, BaseVectorStorage
-from fast_graphrag._types import GTChunk, GTEdge, GTEmbedding, GTHash, GTId, GTNode, TContext, TDocument, TQueryResponse
+from fast_graphrag._storage import create_storage_backend
+from fast_graphrag._storage._base import (
+    BaseGraphStorage,
+    BaseIndexedKeyValueStorage,
+    BaseVectorStorage,
+)
+from fast_graphrag._types import (
+    GTChunk,
+    GTEdge,
+    GTEmbedding,
+    GTHash,
+    GTId,
+    GTNode,
+    TContext,
+    TDocument,
+    TQueryResponse,
+)
 from fast_graphrag._utils import TOKEN_TO_CHAR_RATIO, get_event_loop, logger
 
 
@@ -38,7 +60,7 @@ class BaseGraphRAG(Generic[GTEmbedding, GTHash, GTChunk, GTNode, GTEdge, GTId]):
     domain: str = field()
     example_queries: str = field()
     entity_types: List[str] = field()
-    n_checkpoints: int = field(default=0)
+    storage_type: str = field(default="file")
 
     llm_service: BaseLLMService = field(init=False, default_factory=lambda: BaseLLMService())
     chunking_service: BaseChunkingService[GTChunk] = field(init=False, default_factory=lambda: BaseChunkingService())
@@ -52,35 +74,47 @@ class BaseGraphRAG(Generic[GTEmbedding, GTHash, GTChunk, GTNode, GTEdge, GTId]):
             )
         ),
     )
-    state_manager: BaseStateManagerService[GTNode, GTEdge, GTHash, GTChunk, GTId, GTEmbedding] = field(
-        init=False,
-        default_factory=lambda: BaseStateManagerService(
+    state_manager: BaseStateManagerService[GTNode, GTEdge, GTHash, GTChunk, GTId, GTEmbedding] = field(init=False)
+
+    def __post_init__(self):
+        storage_backend = create_storage_backend(
+            storage_type=self.storage_type,
+            working_dir=self.working_dir,
+            pg_host=os.getenv("PG_HOST", "localhost"),
+            pg_port=int(os.getenv("PG_PORT", "5432")),
+            pg_database=os.getenv("PG_DATABASE", "fastrag"),
+            pg_user=os.getenv("PG_USER", "fastrag"),
+            pg_password=os.getenv("PG_PASSWORD", "fastrag"),
+            embedding_dim=1536,
+            entity_cls=GTNode,
+            relation_cls=GTEdge,
+        )  # type: ignore
+        self.state_manager: BaseStateManagerService[GTNode, GTEdge, GTHash, GTChunk, GTId, GTEmbedding] = BaseStateManagerService[GTNode, GTEdge, GTHash, GTChunk, GTId, GTEmbedding]( # type: ignore
             workspace=None,
-            graph_storage=BaseGraphStorage[GTNode, GTEdge, GTId](config=None),
-            entity_storage=BaseVectorStorage[GTId, GTEmbedding](config=None),
-            chunk_storage=BaseIndexedKeyValueStorage[GTHash, GTChunk](config=None),
+            graph_storage=storage_backend.graph_storage,  # type: ignore
+            entity_storage=storage_backend.entity_storage,  # type: ignore
+            chunk_storage=storage_backend.chunk_storage,  # type: ignore
             embedding_service=BaseEmbeddingService(),
             node_upsert_policy=BaseNodeUpsertPolicy(config=None),
             edge_upsert_policy=BaseEdgeUpsertPolicy(config=None),
-        ),
-    )
+        )
 
     def insert(
         self,
-        content: Union[str, List[str]],
-        metadata: Union[List[Optional[Dict[str, Any]]], Optional[Dict[str, Any]]] = None,
+        content: str,
+        metadata: Optional[dict] = None,
         params: Optional[InsertParam] = None,
         show_progress: bool = True
-    ) -> Tuple[int, int, int]:
+    ) -> Tuple[int, int, int]:  # type: ignore
         return get_event_loop().run_until_complete(self.async_insert(content, metadata, params, show_progress))
 
     async def async_insert(
         self,
-        content: Union[str, List[str]],
-        metadata: Union[List[Optional[Dict[str, Any]]], Optional[Dict[str, Any]]] = None,
+        content: str,
+        metadata: Optional[dict] = None,
         params: Optional[InsertParam] = None,
         show_progress: bool = True
-    ) -> Tuple[int, int, int]:
+    ) -> Tuple[int, int, int]:  # type: ignore
         """Insert a new memory or memories into the graph.
 
         Args:
@@ -157,7 +191,7 @@ class BaseGraphRAG(Generic[GTEmbedding, GTHash, GTChunk, GTNode, GTEdge, GTId]):
         return get_event_loop().run_until_complete(_query())
 
     async def async_query(
-        self, query: Optional[str], params: Optional[QueryParam] = None
+        self, query: str, params: Optional[QueryParam] = None
     ) -> TQueryResponse[GTNode, GTEdge, GTHash, GTChunk]:
         """Query the graph with a given input.
 

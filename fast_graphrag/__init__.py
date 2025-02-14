@@ -2,9 +2,9 @@
 
 __all__ = ["GraphRAG", "QueryParam"]
 
-from dataclasses import dataclass, field
-from typing import Dict, Any, Optional, List
 import os
+from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional
 
 from fast_graphrag._llm import DefaultEmbeddingService, DefaultLLMService
 from fast_graphrag._llm._base import BaseEmbeddingService
@@ -14,7 +14,10 @@ from fast_graphrag._policies._graph_upsert import (
     EdgeUpsertPolicy_UpsertIfValidNodes,
     NodeUpsertPolicy_SummarizeDescription,
 )
-from fast_graphrag._policies._ranking import RankingPolicy_TopK, RankingPolicy_WithThreshold
+from fast_graphrag._policies._ranking import (
+    RankingPolicy_TopK,
+    RankingPolicy_WithThreshold,
+)
 from fast_graphrag._services import (
     DefaultChunkingService,
     DefaultInformationExtractionService,
@@ -37,7 +40,6 @@ class GraphRAG(BaseGraphRAG[TEmbedding, THash, TChunk, TEntity, TRelation, TId])
     entity_types: List[str] = field()
     n_checkpoints: int = field(default=5)
     storage_type: str = field(default="file")
-    storage_options: Optional[Dict[str, Any]] = field(default=None)
     llm_service: BaseLLMService = field(default_factory=DefaultLLMService)
     embedding_service: BaseEmbeddingService = field(default_factory=DefaultEmbeddingService)
 
@@ -45,7 +47,7 @@ class GraphRAG(BaseGraphRAG[TEmbedding, THash, TChunk, TEntity, TRelation, TId])
         """Initialize the GraphRAG class with sensible defaults."""
         # Set up default chunking service
         self.chunking_service = DefaultChunkingService()
-        
+
         # Set up default information extraction service
         self.information_extraction_service = DefaultInformationExtractionService(
             graph_upsert=DefaultGraphUpsertPolicy(
@@ -55,32 +57,38 @@ class GraphRAG(BaseGraphRAG[TEmbedding, THash, TChunk, TEntity, TRelation, TId])
             )
         )
 
-        # Set up storage options
-        if self.storage_options is None:
-            self.storage_options = {}
-            
-        # Configure storage based on type
-        storage_options = {}
-        if self.storage_type == "file":
-            storage_options["working_dir"] = self.working_dir
-        else:  # postgres
-            storage_options.update({
-                "host": os.getenv("PG_HOST", "localhost"),
-                "port": int(os.getenv("PG_PORT", "5432")),
-                "database": os.getenv("PG_DATABASE", "fastrag"),
-                "user": os.getenv("PG_USER", "fastrag"),
-                "password": os.getenv("PG_PASSWORD", "fastrag"),
-                "schema": "graphrag"
-            })
-
         # Create storage instances using factory
-        storage = create_storage_backend(
-            storage_type=self.storage_type,
-            storage_options=storage_options,
-            embedding_dim=self.embedding_service.embedding_dim,
-            entity_cls=TEntity,
-            relation_cls=TRelation
-        )
+        # Create storage instances using factory
+        # Create storage instances using factory
+        if self.storage_type == "file":
+            from fast_graphrag._storage._default import IGraphStorageConfig
+            graph_config=IGraphStorageConfig(node_cls=TEntity, edge_cls=TRelation)
+            storage = create_storage_backend(
+                storage_type=self.storage_type,
+                working_dir=self.working_dir,
+                pg_host=os.getenv("PG_HOST", "localhost"),
+                pg_port=int(os.getenv("PG_PORT", "5432")),
+                pg_database=os.getenv("PG_DATABASE", "fastrag"),
+                pg_user=os.getenv("PG_USER", "fastrag"),
+                pg_password=os.getenv("PG_PASSWORD", "fastrag"),
+                embedding_dim=self.embedding_service.embedding_dim,
+                entity_cls=TEntity,
+                relation_cls=TRelation,
+                graph_config=graph_config
+            )
+        else:
+            storage = create_storage_backend(
+                storage_type=self.storage_type,
+                working_dir=self.working_dir,
+                pg_host=os.getenv("PG_HOST", "localhost"),
+                pg_port=int(os.getenv("PG_PORT", "5432")),
+                pg_database=os.getenv("PG_DATABASE", "fastrag"),
+                pg_user=os.getenv("PG_USER", "fastrag"),
+                pg_password=os.getenv("PG_PASSWORD", "fastrag"),
+                embedding_dim=self.embedding_service.embedding_dim,
+                entity_cls=TEntity,
+                relation_cls=TRelation,
+            )  # type: ignore
 
         # Set up default ranking policies
         entity_ranking_policy = RankingPolicy_WithThreshold(
